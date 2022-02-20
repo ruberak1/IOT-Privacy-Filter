@@ -33,7 +33,7 @@ if [ $ruleUpdateFlag -eq '1' ]; then
 	done
 
 	#Update iptables config file with new rules, this is incase power is lost to clientpi
-	sudo netfilter-persistent save > /etc/iptables/rules.v4
+	sudo netfilter-persistent save
 	#overwrite ruleUpdates.txt to blank file
 	ssh testuser01@ec2-3-86-210-241.compute-1.amazonaws.com 'cat /dev/null >| RULES/ruleUpdates.txt'
 	#reset ruleUpdateFlag in AWS ruleCheck.txt to zero
