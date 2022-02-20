@@ -10,7 +10,7 @@
 sftp testuser01@ec2-3-86-210-241.compute-1.amazonaws.com:RULES/ruleCheck.txt ../TEMP/
 #Store contents of ruleCheck.txt in var for iptables updates?
 ruleUpdateFlag=$(cat ../TEMP/ruleCheck.txt)
-#Run network scan nmap if scanFlag is 1 or exit script if scanflag is 0
+#Make changes to iptables firewall rules if ruleUpdateFlag is 1 or exit script if ruleUpdateflag is 0
 if [ $ruleUpdateFlag -eq '1' ]; then
 	#Connect to AWS and get the latest copy of ruleUpdates.txt for local client pi iptables changes 
 	sftp testuser01@ec2-3-86-210-241.compute-1.amazonaws.com:RULES/ruleUpdates.txt ../TEMP/ 
@@ -32,6 +32,8 @@ if [ $ruleUpdateFlag -eq '1' ]; then
 		fi
 	done
 
+	#Update iptables config file with new rules, this is incase power is lost to clientpi
+	sudo netfilter-persistent save > /etc/iptables/rules.v4
 	#overwrite ruleUpdates.txt to blank file
 	ssh testuser01@ec2-3-86-210-241.compute-1.amazonaws.com 'cat /dev/null >| RULES/ruleUpdates.txt'
 	#reset ruleUpdateFlag in AWS ruleCheck.txt to zero
