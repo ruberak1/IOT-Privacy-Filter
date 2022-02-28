@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="splash.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <div class="intro">
+        <h1 class="logo-header">
+        <span class="logo">Privacy</span><span class="logo">Fence</span>
+        </h1>
+    </div>
+    <header>
+        <h4>Please Login</h4>
+    </header>
+    <form name="loginForm" id="loginForm" action="profileload.html" method="POST" onsubmit="storeValues(this)">
+        <input type="text" name="unameInput" id="unameInput" /> <br/>
+        <input type="password" name="passInput" id="passInput" /> <br />
+        <input type="submit" value="login" />
+    </form>
+    <script src="splash.js"></script>
+    <script src="storecreds.js"></script>
+</body>
+</html>
