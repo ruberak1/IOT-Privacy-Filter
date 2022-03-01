@@ -9,7 +9,7 @@
     <?php
     //read contents of scanresult to output found devices
         //crate arrays to store MAC and hostnames
-        // $findHost = array();
+        $findHost = [];
         $findMAC = [];
         //loop through file and use regexp to match MACs with their hostnames in clean output results
 		$file_lines = file('/var/www/html/profiles/webuser01/storage/SCAN/scanResults.txt');
@@ -17,14 +17,17 @@
             //patern1 is a regexp to match mac addresses
 			$pattern1 = "#([0-9A-Fa-f]{2}[:-][0-9A-Fa-f]{2}[:-][0-9A-Fa-f]{2}[:-][0-9A-Fa-f]{2}[:-][0-9A-Fa-f]{2}[:-][0-9A-Fa-f]{2})#";
             //patter2 is a regexp to match hostnames
-         //   $pattern2 = "/[^Nmap scan report for]([^\s]+)/";
+            $pattern2 = "#Nmap scan report for#";
 
             //split line on spaces 
             $breakLine = explode(" ", $line);
             //determine if MAC addess exist in current line if true, store index 2 into array MAC should be 3rd entry on the line
             if (preg_match($pattern1, $line)){
                 $findMAC[] = $breakLine[2];
-                //echo "<br/>";
+            }
+            //determine if hostname exist in current line if true, store index 4 into array MAC should be 5th entry on the line if not hostname 5th entry will be IP
+            if (preg_match($pattern2, $line)){
+                $findHost[] = $breakLine[4];
             }
 		}
 	    ?>
@@ -39,14 +42,16 @@
                 <th>Add Device ?</th>
             </tr>
             <?php
-                //combine my mac and host arrays to loop through results
-                //$scanResults = array_combine($findHost, $findMAC);
-
-                //foreach($scanResults as $host => $mac) {
-                    foreach($findMAC as $mac) {
+                //remove clientpi from findHost array. will be last entry, reason: nmap doesnt supply MAC for device nmap is run on, because of this arrays are uneven
+                $killKey = array_key_last($findHost);
+                unset($findHost[$killKey]);
+                //combine my mac and host arrays together
+                $scanResults = array_combine($findHost, $findMAC);
+                //loop through array and output all results
+                foreach($scanResults as $host => $mac) {
                 echo "<tr>";
             ?>
-                <td><?php //echo $host; ?></td>
+                <td><?php echo $host; ?></td>
                 <td><?php echo $mac; ?></td>
                 <td>PLACEHOLDER</td>
                 </tr>
@@ -66,6 +71,6 @@
             <li>My Devices</li>
             <li>Log</li>
         </ul>
-            </div>
+    </div>
 </body>
 </html>
