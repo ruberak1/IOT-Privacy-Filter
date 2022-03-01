@@ -1,3 +1,17 @@
+<?php
+    //add device to devices.txt if user clicks add button
+    if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['addMac']))
+    {
+        func();
+    }
+    function func()
+    {
+        $deviceFile = "/var/www/html/profiles/webuser01/storage/DEVICES/devices.txt";
+        $fileContents = file_get_contents($deviceFile);
+        $fileContents .="0 ".$_POST['addMac']."";
+        file_put_contents($deviceFile, $fileContents);     
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +44,13 @@
                 $findHost[] = $breakLine[4];
             }
 		}
+        //check currnet stored IoT Devices
+        $currentDevices = [];
+        $file_lines2 = file('/var/www/html/profiles/webuser01/storage/DEVICES/devices.txt');
+        foreach ($file_lines2 as $line) {
+            $breakLine2 = explode(" ", $line);
+            $currentDevices[] = $breakLine2[1];
+        }
 	    ?>
     <div>
         <h1>Scan For Devices</h1>
@@ -53,7 +74,19 @@
             ?>
                 <td><?php echo $host; ?></td>
                 <td><?php echo $mac; ?></td>
-                <td>PLACEHOLDER</td>
+                <td>
+                    <?php
+                    //displays either device in devices list or lets user add a new device to the device list
+                    if (in_array($mac, $currentDevices)) {
+                        echo "<!--<img src='../../images/' alt='list icon' />-->Already in Devices";
+                    } else {
+                        echo "<form action='scan.php' method='post'>
+                                <input type='hidden' name='addMac' value='". $mac ."' />
+                                <input type='image' src='../../images/add.png' alt='add icon' name='submit' />
+                             </form>";
+                    }
+                    ?>
+                </td>
                 </tr>
             <?php
                 }
