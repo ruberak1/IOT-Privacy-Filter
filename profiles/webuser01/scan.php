@@ -1,11 +1,11 @@
 <?php 
 //writes scanned host to devicelist if user click additon button
-include 'writetodevice.php';
+include 'scaninclude/writetodevice.php';
 ?>
 <?php 
 //stores and cleans scannned results to 2 arrays one hostnames the other MAC addresses
 //also stores current devicelist entries in an array to compare against scanned items to prevent duplicate clients in device list
-include 'readscanresults.php';
+include 'scaninclude/readscanresults.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,9 +44,10 @@ include 'readscanresults.php';
                         echo "<!--<img src='../../images/' alt='list icon' />-->Already in Devices";
                     } else {
                         echo "<form action='scan.php' method='post'>
-                                <input type='hidden' name='addMac' value='". $mac ."' />
-                                <input type='image' src='../../images/add.png' alt='add icon' name='submit' />
-                             </form>";
+                        <input type='hidden' name='addMac' value='". $mac ."' />
+                        <input type='hidden' name='addHost' value='". $host ."' />
+                        <input type='image' src='../../images/add.png' alt='add icon' name='submit' />
+                        </form>";
                     }
                     ?>
                 </td>
@@ -65,8 +66,8 @@ include 'readscanresults.php';
     </div>
     <div>
         <ul>
-            <li>Scan</li>
-            <li>My Devices</li>
+            <li><a href="scan.php">Scan</a></li>
+            <li><a href="device.php">My Devices<a></li>
             <li>Log</li>
         </ul>
     </div>
