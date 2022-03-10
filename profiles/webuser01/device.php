@@ -31,14 +31,14 @@ include 'deviceinclude/readdevicelist.php';
                     $breakLine = explode(" ", $iotdevice);
                     echo "<tr>";
             ?>
-                <td><?php echo $breakLine[1]."<input type='hidden' name='hostentry".$deviceCounter."' value='".$breakLine[1]."' />"; ?></td>
-                <td><?php echo rtrim($breakLine[2])."<input type='hidden' name='macentry".$deviceCounter."' value='".rtrim($breakLine2[2])."' />"; ?></td>
+                <td><?php echo $breakLine[1]."<input type='hidden' name='hostEntry".$deviceCounter."' value='".$breakLine[1]."' />"; ?></td>
+                <td><?php echo rtrim($breakLine[2])."<input type='hidden' name='macEntry".$deviceCounter."' value='".rtrim($breakLine[2])."' />"; ?></td>
                 <td>
                 <?php 
                 if ($breakLine[0] == "0") {
                     echo 
                     "<label class='switch'>
-                    <input type='checkbox' name='filterEntry".$deviceCounter."' value='0'>
+                    <input type='checkbox' name='filterEntry".$deviceCounter."' value='1'>
                     <span class='slider round'></span>
                     </label>";
                 } else {

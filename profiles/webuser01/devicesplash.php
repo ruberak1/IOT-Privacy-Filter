@@ -15,15 +15,18 @@
         $deviceFile = "/var/www/html/profiles/webuser01/storage/DEVICES/devices.txt";
         //counter to loop through devices from devices.php form
         $deviceNum = 1;
-        $deviceContents = "";
         while($deviceNum <= $_POST['numEntries']) {
             //concat form objects with line index number
             $filterLineItem = "filterEntry".$deviceNum;
             $hostLineItem = "hostEntry".$deviceNum;
             $macLineItem = "macEntry".$deviceNum;
-            $deviceContents .= $_POST[$filterLineItem]." ".$_POST[$hostLineItem]." ".$_POST[$macLineItem]."\r\n";
+            //if filter toggle is off no form data is posted for filterEntry checkbox, this means value should be zero
+            $filterLineItem = $_POST[$filterLineItem] ?? '0';
+            //append entry to devicelist variable buffer, 
+            $deviceContents .= $filterLineItem." ".$_POST[$hostLineItem]." ".$_POST[$macLineItem]."\r\n";
             $deviceNum++;
         }
+        //write entries to devices.txt
         file_put_contents($deviceFile, $deviceContents);     
     }
 ?>
