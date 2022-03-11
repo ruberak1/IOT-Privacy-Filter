@@ -17,9 +17,9 @@
             if (preg_match($pattern1, $line)){
                 $findMAC[] = $breakLine[2];
             }
-            //determine if hostname exist in current line if true, store index 4 into array MAC should be 5th entry on the line if not hostname 5th entry will be IP
+            //determine if hostname exist in current line if true, store index 4 into array MAC should be 5th entry on the line if not hostname 5th entry will be IP, if its an IP we need to strip newline character
             if (preg_match($pattern2, $line)){
-                $findHost[] = $breakLine[4];
+                $findHost[] = rtrim($breakLine[4], " \n");
             }
 		}
         //check currnet stored IoT Devices in users devicelist

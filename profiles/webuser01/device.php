@@ -15,6 +15,8 @@ include 'deviceinclude/readdevicelist.php';
         <h1>My IoT Devices</h1>
     </div>
     <div>
+    <p style="textAlign: right;"><button onclick="window.location.href='deviceremoval.php'">Remove a Device</button>
+    </p>
     <form action="devicesplash.php" method="POST">
         <table>
             <tr>
