@@ -1,11 +1,11 @@
 <?php 
 //writes scanned host to devicelist if user click additon button
 include 'scaninclude/writetodevice.php';
-?>
-<?php 
 //stores and cleans scannned results to 2 arrays one hostnames the other MAC addresses
 //also stores current devicelist entries in an array to compare against scanned items to prevent duplicate clients in device list
 include 'scaninclude/readscanresults.php';
+//displays status of users hardware filter rasberry pi device
+include 'pistatinclude/pistatus.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@ include 'scaninclude/readscanresults.php';
 </head>
 <body>
     <div>
-        <h1>Scan For Devices</h1>
+        <?php echo $piClientStatus; ?><h1>Scan For Devices</h1>
     </div>
     <div>
         <table>

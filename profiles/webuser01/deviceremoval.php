@@ -17,6 +17,7 @@ include 'deviceinclude/readdevicelist.php';
         <h1>Remove IoT Device</h1>
     </div>
     <div>
+        <h3>Please disable filtering on a device to remove it from your device list.</h3>
         <p style="textAlign: right;"><button onclick="window.location.href='device.php'">Exit Device Removal</button>
         </p>
         <table>
@@ -26,27 +27,29 @@ include 'deviceinclude/readdevicelist.php';
                 <th>Delete Device?</th>
             </tr>
             <?php
-                print_r($findIoTEntry);
                 //loop through array and output all iot device results
                 foreach($findIoTEntry as $iotdevice) {
                     //break array values into seperate fields host, mac, and filter
                     $breakLine = explode(" ", $iotdevice);
                     echo "<tr>";
+                    //if device is currently being filtered do not display it as an option for deleteion
+                    if ($breakLine[0] == "0")
+                    {
             ?>
                     <td><?php echo $breakLine[1]; ?></td>
                     <td><?php echo $breakLine[2]; ?></td>
                     <td>
-                    <form action="deviceremoval.php" method="post" onsubmit="return confirm('Do you want to delete device with MAC address <?php echo $breakLine[2];?>');">
+                    <form action="deviceremoval.php" method="post" onsubmit="return confirm('Do you want to delete this device?');">
                         <input type='hidden' name='macEntry' value='<?php echo $breakLine[2];?>' />
                         <input type='hidden' name='hostEntry' value='<?php echo $breakLine[1];?>' />
                         <input type='hidden' name='filterEntry' value='<?php echo $breakLine[0];?>' />
-                        <!--<input type='image' src='../../images/cross-circle.png' alt='add icon' name='submit' />-->
-                        <input type="submit" name="submit" />
+                        <input type='image' src='../../images/cross-circle.png' alt='add icon' name='submit' />
                     </form>
                     </td>
                 </tr>
             <?php
                 }
+            }
             ?>
         </table>
     </div>
