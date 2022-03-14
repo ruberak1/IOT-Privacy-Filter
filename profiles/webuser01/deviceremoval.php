@@ -3,6 +3,8 @@
 include 'deviceinclude/writedeviceremoval.php';
 //reads devices.txt lines into column arrays to display to the user
 include 'deviceinclude/readdevicelist.php';
+//displays status of users hardware filter rasberry pi device
+include 'pistatinclude/pistatus.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +16,7 @@ include 'deviceinclude/readdevicelist.php';
 </head>
 <body>
 <div>
-        <h1>Remove IoT Device</h1>
+    <?php echo $piClientStatus; ?><h1>Remove IoT Device</h1>
     </div>
     <div>
         <h3>Please disable filtering on a device to remove it from your device list.</h3>
@@ -57,7 +59,7 @@ include 'deviceinclude/readdevicelist.php';
         <ul>
             <li><a href="scan.php">Scan</a></li>
             <li><a href="device.php">My Devices<a></li>
-            <li>Log</li>
+            <li><a href="log.php">Log<a></li>
         </ul>
     </div>
 </body>

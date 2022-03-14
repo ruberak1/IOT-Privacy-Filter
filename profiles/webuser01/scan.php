@@ -68,7 +68,7 @@ include 'pistatinclude/pistatus.php';
         <ul>
             <li><a href="scan.php">Scan</a></li>
             <li><a href="device.php">My Devices<a></li>
-            <li>Log</li>
+            <li><a href="log.php">Log<a></li>
         </ul>
     </div>
 </body>

@@ -1,6 +1,8 @@
 <?php 
 //reads devices.txt lines into column arrays to display to the user
 include 'deviceinclude/readdevicelist.php';
+//displays status of users hardware filter rasberry pi device
+include 'pistatinclude/pistatus.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +14,7 @@ include 'deviceinclude/readdevicelist.php';
 </head>
 <body>
 <div>
-        <h1>My IoT Devices</h1>
+    <?php echo $piClientStatus; ?><h1>My IoT Devices</h1>
     </div>
     <div>
     <p style="textAlign: right;"><button onclick="window.location.href='deviceremoval.php'">Remove a Device</button>
@@ -74,7 +76,7 @@ include 'deviceinclude/readdevicelist.php';
         <ul>
             <li><a href="scan.php">Scan</a></li>
             <li><a href="device.php">My Devices<a></li>
-            <li>Log</li>
+            <li><a href="log.php">Log<a></li>
         </ul>
     </div>
 </body>
