@@ -12,6 +12,8 @@ include 'pistatinclude/pistatus.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/submitButton.css">
+    <link rel="stylesheet" href="../../css/navBar.css">
     <title>Scan Network</title>
 </head>
 <body>
@@ -60,16 +62,14 @@ include 'pistatinclude/pistatus.php';
     <div>
         <p>
             <form action="scansplash.php" method="POST">
-                <input type="submit" name="scanNetwork" value="Scan Network" />
+                <input class="button-7" type="submit" name="scanNetwork" value="Scan Network" />
             </form>        
         </p>
     </div>
-    <div>
-        <ul>
-            <li><a href="scan.php">Scan</a></li>
-            <li><a href="device.php">My Devices<a></li>
-            <li><a href="log.php">Log<a></li>
-        </ul>
+    <div class="navbar">
+        <a href="scan.php">Scan</a>
+        <a href="device.php">My Devices</a>
+        <a href="log.php">Log</a>
     </div>
 </body>
 </html>

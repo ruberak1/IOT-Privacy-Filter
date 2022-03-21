@@ -5,6 +5,7 @@
         writerulecheck();
         writedevices();
         writeruleupdates();
+        writelog();
     }
     function writerulecheck()
     {
@@ -47,6 +48,16 @@
         }
         //write entries to devices.txt
         file_put_contents($deviceFile, $deviceContents);     
+    }
+    function writelog() 
+    {
+        //write user action to log
+        $logFile = "/var/www/html/profiles/webuser01/storage/LOG/log.txt";
+        $fileContents = file_get_contents($logFile);
+        date_default_timezone_set('America/New_York');
+        $logDate = date("M d H:i");
+        $fileContents .=$logDate." Filtering Change Requested"."\r\n";
+        file_put_contents($logFile, $fileContents); 
     }
 ?>
 <!DOCTYPE html>

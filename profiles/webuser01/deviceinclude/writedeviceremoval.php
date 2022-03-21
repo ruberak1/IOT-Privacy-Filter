@@ -3,6 +3,7 @@
     if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['macEntry']))
     {
         writedeviceremove();
+        writelog();
     }
     function writedeviceremove()
     {
@@ -26,5 +27,15 @@
         //write devices back to devices.txt
         $deviceFile = "/var/www/html/profiles/webuser01/storage/DEVICES/devices.txt";
         file_put_contents($deviceFile, $fileContents);     
+    }
+    function writelog() 
+    {
+        //write user action to log
+        $logFile = "/var/www/html/profiles/webuser01/storage/LOG/log.txt";
+        $fileContents = file_get_contents($logFile);
+        date_default_timezone_set('America/New_York');
+        $logDate = date("M d H:i");
+        $fileContents .=$logDate." Device Removed"."\r\n";
+        file_put_contents($logFile, $fileContents); 
     }
 ?>
