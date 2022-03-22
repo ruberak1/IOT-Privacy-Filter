@@ -10,8 +10,8 @@
 		}
     //store output icon to display on app ui page 
     if ($power[0] == "1"){
-        $piClientStatus = "<img src='..\..\..\images\power.png' alt='pipoweredon' />";
+        $piClientStatus = "<img src='..\..\..\images\power.png' alt='pipoweredon' />Pi is Online";
     }else{
-        $piClientStatus = "<img src='..\..\..\images\poweroff.png' alt='pipoweredoff' />";
+        $piClientStatus = "<script>alert('-Warning-\\nClient Hardware Pi is Offline.\\nPlease Resolve Connection Issues Before Using the App.')</script><img src='..\..\..\images\poweroff.png' alt='pipoweredoff' />Pi is Offline";
     }
  ?>

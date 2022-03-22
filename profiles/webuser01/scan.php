@@ -17,18 +17,21 @@ include 'pistatinclude/pistatus.php';
     <link rel="stylesheet" href="../../css/titleLine.css">
     <link rel="stylesheet" href="../../css/table.css">
     <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/container.css">
     <title>Scan Network</title>
 </head>
 <body>
     <div class="topline">
-        <h1>&nbsp;<?php echo $piClientStatus; ?>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Scan For Devices&nbsp;-&nbsp;</h1>
+        <!--<h1>&nbsp;<?php echo $piClientStatus; ?>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Scan For Devices&nbsp;-&nbsp;</h1>-->
+        <?php echo $piClientStatus; ?>
     </div>
-    <div>
+    <div class="container">
+    <h1>&nbsp;-&nbsp;Scan for Devices&nbsp;-&nbsp;</h1>
         <table class="zui-table">
             <tr>
                 <th>Hostname</th>
                 <th>MAC</th>
-                <th>Add Device ?</th>
+                <th>Add Device?</th>
             </tr>
             <?php
                 //remove clientpi from findHost array. will be last entry, reason: nmap doesnt supply MAC for device nmap is run on, because of this arrays are uneven
@@ -48,7 +51,7 @@ include 'pistatinclude/pistatus.php';
                     <?php
                     //displays either device in devices list or lets user add a new device to the device list
                     if (in_array($mac, $currentDevices)) {
-                        echo "<!--<img src='../../images/' alt='list icon' />-->Already in Devices";
+                        echo "<img src='../../images/checkbox.png' alt='existing device icon' />";
                     } else {
                         echo "<form action='scan.php' method='post'>
                         <input type='hidden' name='addMac' value='". $mac ."' />
@@ -64,18 +67,20 @@ include 'pistatinclude/pistatus.php';
             ?>
         </table>
     </div>
-    <div>
+    <div style="text-align: center;">
         <p>
             <form action="scansplash.php" method="POST">
                 <input class="button-7" type="submit" name="scanNetwork" value="Scan Network" />
             </form>        
         </p>
     </div>
+    <div class="navarea">
     <div class="navbar">
-        <a class="nav-bordera" href="scan.php"><img src="../../images/search.png" alt="search icon" /><br />Scan</a>
+        <a href="scan.php"><img src="../../images/search.png" alt="search icon" /><br />Scan</a>
         <a href="device.php"><img src="../../images/tablet.png" alt="devices icon" /><br />My Devices</a>
         <a href="log.php"><img src="../../images/notebook.png" alt="log icon" /><br />Log</a>
-        <a class="nav-borderb" href=""><img src="../../images/sign-out.png" alt="signout icon" /><br />Sign Out</a>
+        <a href=" https://log:out@privacyfence.tk/"><img src="../../images/sign-out.png" alt="signout icon" /><br />Sign Out</a>
+    </div>
     </div>
 </body>
 </html>
