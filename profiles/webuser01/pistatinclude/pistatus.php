@@ -10,8 +10,8 @@
 		}
     //store output icon to display on app ui page 
     if ($power[0] == "1"){
-        $piClientStatus = "<img src='..\..\..\images\power.png' alt='pipoweredon' /> <h3>Client Pi</h3>";
+        $piClientStatus = "<img src='..\..\..\images\power.png' alt='pipoweredon' />";
     }else{
-        $piClientStatus = "<img src='..\..\..\images\poweroff.png' alt='pipoweredoff' /> <h3>Client Pi</h3>";
+        $piClientStatus = "<img src='..\..\..\images\poweroff.png' alt='pipoweredoff' />";
     }
  ?>

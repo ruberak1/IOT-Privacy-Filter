@@ -14,14 +14,17 @@ include 'pistatinclude/pistatus.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/submitButton.css">
     <link rel="stylesheet" href="../../css/navBar.css">
+    <link rel="stylesheet" href="../../css/titleLine.css">
+    <link rel="stylesheet" href="../../css/table.css">
+    <link rel="stylesheet" href="../../css/main.css">
     <title>Scan Network</title>
 </head>
 <body>
-    <div>
-        <?php echo $piClientStatus; ?><h1>Scan For Devices</h1>
+    <div class="topline">
+        <h1>&nbsp;<?php echo $piClientStatus; ?>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Scan For Devices&nbsp;-&nbsp;</h1>
     </div>
     <div>
-        <table>
+        <table class="zui-table">
             <tr>
                 <th>Hostname</th>
                 <th>MAC</th>
@@ -33,9 +36,11 @@ include 'pistatinclude/pistatus.php';
                 unset($findHost[$killKey]);
                 //combine my mac and host arrays together
                 $scanResults = array_combine($findHost, $findMAC);
+                //format table line colors for readablity
+                $color = 0;
                 //loop through array and output all results
                 foreach($scanResults as $host => $mac) {
-                echo "<tr>";
+                if ($color == 0) { echo "<tr style=\"background-color: #acdcee;\">"; $color = 1; } else{ echo "<tr style=\"background-color: #f0fbff;\">"; $color = 0; }
             ?>
                 <td><?php echo $host; ?></td>
                 <td><?php echo $mac; ?></td>
@@ -67,9 +72,10 @@ include 'pistatinclude/pistatus.php';
         </p>
     </div>
     <div class="navbar">
-        <a href="scan.php">Scan</a>
-        <a href="device.php">My Devices</a>
-        <a href="log.php">Log</a>
+        <a class="nav-bordera" href="scan.php"><img src="../../images/search.png" alt="search icon" /><br />Scan</a>
+        <a href="device.php"><img src="../../images/tablet.png" alt="devices icon" /><br />My Devices</a>
+        <a href="log.php"><img src="../../images/notebook.png" alt="log icon" /><br />Log</a>
+        <a class="nav-borderb" href=""><img src="../../images/sign-out.png" alt="signout icon" /><br />Sign Out</a>
     </div>
 </body>
 </html>
