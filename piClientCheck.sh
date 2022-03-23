@@ -20,13 +20,9 @@ if [ -z "$checkLog" ]; then
 else
 	#perform differnce calculation on current time and timestamp of last connection
 	#if outcome is over 60 seconds write zero to file
-	echo $checkLog
 	logTime=$(date -d "$checkLog" +"%s")
 	currentTime=$(date +%s)
 	timeDiff=$(( currentTime - $logTime ))
-	echo $logTime
-	echo $currentTime
-	echo $timeDiff
 	if [ $timeDiff -gt 60 ]; then
 		#if last status was online update log that pi is offline
 		if [ $logStatus == "1" ]; then
