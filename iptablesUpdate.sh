@@ -7,13 +7,13 @@
 #to iptables on the clientpi device
 
 #Connect to AWS and get ruleCheck.txt to determine if filtering is to take place
-sftp testuser01@ec2-3-86-210-241.compute-1.amazonaws.com:RULES/ruleCheck.txt ../TEMP/
+sftp testuser01@ec2-3-86-210-241.compute-1.amazonaws.com:RULES/ruleCheck.txt /home/pi/TEMP/
 #Store contents of ruleCheck.txt in var for iptables updates?
-ruleUpdateFlag=$(cat ../TEMP/ruleCheck.txt)
+ruleUpdateFlag=$(cat /home/pi/TEMP/ruleCheck.txt)
 #Make changes to iptables firewall rules if ruleUpdateFlag is 1 or exit script if ruleUpdateflag is 0
 if [ $ruleUpdateFlag -eq '1' ]; then
 	#Connect to AWS and get the latest copy of ruleUpdates.txt for local client pi iptables changes 
-	sftp testuser01@ec2-3-86-210-241.compute-1.amazonaws.com:RULES/ruleUpdates.txt ../TEMP/ 
+	sftp testuser01@ec2-3-86-210-241.compute-1.amazonaws.com:RULES/ruleUpdates.txt /home/pi/TEMP/ 
 	#read ruleUpdates.txt and loop through each line
 	rules=/home/pi/TEMP/ruleUpdates.txt
 	while IFS= read -r line; do
