@@ -5,6 +5,7 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+  margin: 0px;
 }
 .navbar {
   width: 75%;

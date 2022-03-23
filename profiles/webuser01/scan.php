@@ -22,7 +22,6 @@ include 'pistatinclude/pistatus.php';
 </head>
 <body>
     <div class="topline">
-        <!--<h1>&nbsp;<?php echo $piClientStatus; ?>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Scan For Devices&nbsp;-&nbsp;</h1>-->
         <?php echo $piClientStatus; ?>
     </div>
     <div class="container">
@@ -31,7 +30,7 @@ include 'pistatinclude/pistatus.php';
             <tr>
                 <th>Hostname</th>
                 <th>MAC</th>
-                <th>Add Device?</th>
+                <th>Add&nbsp;Device?</th>
             </tr>
             <?php
                 //remove clientpi from findHost array. will be last entry, reason: nmap doesnt supply MAC for device nmap is run on, because of this arrays are uneven
@@ -66,13 +65,13 @@ include 'pistatinclude/pistatus.php';
                 }
             ?>
         </table>
-    </div>
     <div style="text-align: center;">
         <p>
             <form action="scansplash.php" method="POST">
                 <input class="button-7" type="submit" name="scanNetwork" value="Scan Network" />
             </form>        
         </p>
+    </div>
     </div>
     <div class="navarea">
     <div class="navbar">

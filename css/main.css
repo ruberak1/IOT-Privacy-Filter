@@ -2,3 +2,8 @@ body {
   margin: 0;
   background-color: #f0fbff;
 }
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
