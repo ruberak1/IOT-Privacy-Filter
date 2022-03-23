@@ -1,0 +1,30 @@
+Mar 16 01:19 Log File Cleared
+Mar 16 01:20 Filtering Change Requested
+Mar 16 01:21 Filtering Change Applied
+Mar 16 16:59 New Device Added
+Mar 16 16:59 Device Removed
+Mar 22 00:15 Client Pi is Offline
+Mar 22 00:32 New Device Added
+Mar 22 00:32 Device Removed
+Mar 22 00:41 Client Pi is Online
+Mar 22 16:05 Client Pi is Offline
+Mar 22 16:30 Client Pi is Online
+Mar 22 16:41 Network Scan Requested
+Mar 22 16:46 Scan has Completed
+Mar 22 16:55 Network Scan Requested
+Mar 22 17:23 Client Pi is Offline
+Mar 22 17:30 Client Pi is Online
+Mar 22 17:37 Client Pi is Offline
+Mar 22 17:39 Client Pi is Online
+Mar 22 17:49 Scan has Completed
+Mar 22 22:23 Network Scan Requested
+Mar 22 22:24 Scan has Completed
+Mar 22 23:06 Network Scan Requested
+Mar 22 23:06 Scan has Completed
+Mar 22 23:07 Network Scan Requested
+Mar 22 23:07 Scan has Completed
+Mar 22 23:10 New Device Added
+Mar 22 23:10 Filtering Change Requested
+Mar 22 23:16 Filtering Change Applied
+Mar 22 23:17 Filtering Change Requested
+Mar 22 23:17 Filtering Change Applied
