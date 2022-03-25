@@ -8,6 +8,7 @@
     <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="css/splash.css">
     <link rel="stylesheet" href="css/signIn.css">
+	<link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/submitButton.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Fence Login</title>
@@ -19,18 +20,18 @@
         </h1>
     </div>
         
-    <form class="login-form" name="loginForm" id="loginForm" action="profileload.html" method="POST" onsubmit="storeValues(this)">
+    <form class="login-form" name="loginForm" id="loginForm" action="profileload.php" method="POST">
         <!--<h4>Please Login</h4>-->
         <img src="images/fencelogo.png" alt="privacyfence logo" />
         <div class="form-input-material">
             <input style="font-size: 18px;" type="text" name="unameInput" id="unameInput" placeholder="Username" autocomplete="off" required />
         </div>
-         <div class="form-input-material">
+        <div class="form-input-material">
             <input style="font-size: 18px;" type="password" name="passInput" id="passInput" placeholder="Password" autocomplete="off" required />
         </div>
         <input class="button-7" style="font-size: 20px;"type="submit" value="login" />
     </form>
     <script src="splash.js"></script>
-    <script src="storecreds.js"></script>
+    <!--<script src="storecreds.js"></script>-->
 </body>
 </html>

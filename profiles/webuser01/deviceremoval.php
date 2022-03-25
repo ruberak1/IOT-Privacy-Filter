@@ -69,7 +69,7 @@ include 'pistatinclude/pistatus.php';
         <a href="scan.php"><img src="../../images/search.png" alt="search icon" /><br />Scan</a>
         <a href="device.php"><img src="../../images/tablet.png" alt="devices icon" /><br />My Devices</a>
         <a href="log.php"><img src="../../images/notebook.png" alt="log icon" /><br />Log</a>
-        <a href=" https://log:out@privacyfence.tk/"><img src="../../images/sign-out.png" alt="signout icon" /><br />Sign Out</a>
+        <a href=" https://logout@privacyfence.tk/"><img src="../../images/sign-out.png" alt="signout icon" /><br />Sign Out</a>
     </div>
     </div>
 </body>
