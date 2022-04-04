@@ -6,7 +6,14 @@
 
 #Determine if pi is still online
 #Get Timestamp of last successful connection attempt by the user
-checkLog=$(sudo grep "webserver sshd\[[0-9]*]: Accepted publickey for testuser01 from [0-9]*.*ssh2" /var/log/auth.log | tail -1 | cut -d' ' -f1-3)
+#bug found 4/1/22 an extra space is added to time stamp in auth.log due to no preceding 0 on the day
+#add exception conditional for days 1-9 and 10-31
+dateBug=$(date +"%d")
+if [ $dateBug -lt 10 ]; then
+	checkLog=$(sudo grep "webserver sshd\[[0-9]*]: Accepted publickey for testuser01 from [0-9]*.*ssh2" /var/log/auth.log | tail -1 | cut -d' ' -f1-4)
+else
+	checkLog=$(sudo grep "webserver sshd\[[0-9]*]: Accepted publickey for testuser01 from [0-9]*.*ssh2" /var/log/auth.log | tail -1 | cut -d' ' -f1-3)
+fi
 #store value of pistatus.txt, used to determine if log needs to be updated based on condition
 logStatus=$(cat /home/testuser01/PISTATUS/pistatus.txt)
 timeStamp=$(TZ='America/New_York' date +"%b %d %H:%M")
