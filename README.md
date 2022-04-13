@@ -1,4 +1,4 @@
-# IoT-Privacy-Filter
+# IoT-Privacy-Filter - PrivacyFence
 Capstone Project IT8010 IoT Privacy Filter App Platform
 
 <h2>Synopsis</h2>
