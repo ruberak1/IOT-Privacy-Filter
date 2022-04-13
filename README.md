@@ -1,5 +1,5 @@
-# IOT-Privacy-Filter
-Capstone Project IT8010 IOT Privacy Filter App Platform
+# IoT-Privacy-Filter - PrivacyFence
+Capstone Project IT8010 IoT Privacy Filter App Platform
 
 <h2>Synopsis</h2>
 This project develops and implements an application platform solution to mitigate the privacy risks with IoT devices that utilize recording capabilities. The design called for filtering mechanisms along with an accessible interactive user interface for a user to apply the filtration to the device traffic when necessary. The final product of the project accomplishes these goals by combining multiple hardware and software components that work in tandem to form the application platform solution.
